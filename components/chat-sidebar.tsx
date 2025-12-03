@@ -391,21 +391,7 @@ export function ChatSidebar({ onClose }: { onClose?: () => void }) {
         </div>
       </ScrollArea>
 
-      {/* Login button for non-authenticated users */}
-      {!user && (
-        <div className="border-t p-3">
-          <Button
-            onClick={() => {
-              window.location.href = "/auth/login"
-            }}
-            className="w-full gap-2"
-            variant="default"
-          >
-            <User className="h-4 w-4" />
-            Sign In
-          </Button>
-        </div>
-      )}
+      {/* Sign In button removed - single-user local-first app */}
 
       {/* User profile section at bottom */}
       {user && (

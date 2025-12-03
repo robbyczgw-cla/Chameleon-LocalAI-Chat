@@ -79,6 +79,25 @@ This is the **Local-First Edition** - optimized for maximum privacy:
 
 ---
 
+## Smart Follow-Up Suggestions
+
+**The feature that changes how you chat with AI.**
+
+After every response, Chameleon analyzes the conversation and suggests **3 intelligent follow-up questions** - helping you explore topics deeper, faster.
+
+<!-- Add your screenshot here -->
+<!-- ![Follow-up Suggestions](docs/screenshots/follow-up-suggestions.png) -->
+
+**Why it matters:**
+- Never hit a dead-end in conversations
+- Discover angles you didn't think to ask
+- Learn faster with guided exploration
+- Works with every persona and model
+
+*Click a suggestion or keep typing - your choice.*
+
+---
+
 ## Features
 
 ### 🎭 Intelligent Personas
