@@ -1,0 +1,118 @@
+# ===================================
+# Chameleon AI Chat - .gitignore
+# ===================================
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.pnp.cjs
+.yarn/
+
+# Build outputs
+.next/
+out/
+build/
+dist/
+*.tgz
+
+# ===================================
+# SENSITIVE DATA - NEVER COMMIT!
+# ===================================
+
+# Local SQLite Database (contains user data)
+/data/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# Environment variables (contain API keys)
+.env
+.env.*
+!.env.example
+
+# API Keys & Secrets
+*.pem
+*.key
+**/secrets/
+**/credentials/
+
+# ===================================
+# Development
+# ===================================
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-*
+*.code-workspace
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+.coverage/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# ===================================
+# Deployment
+# ===================================
+
+# Vercel
+.vercel
+
+# Netlify
+.netlify/
+
+# Docker
+Dockerfile.local
+docker-compose.local.yml
+
+# ===================================
+# PWA & Cache
+# ===================================
+
+public/sw.js
+public/workbox-*.js
+.cache/
+
+# ===================================
+# Misc
+# ===================================
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*~
+
+# Package manager locks (keep one)
+# Uncomment the ones you DON'T use:
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml

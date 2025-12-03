@@ -1,0 +1,2360 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/*
+ * Local-First Edition: Fonts disabled for offline use
+ * TODO: Host fonts locally in /public/fonts for full offline support
+ * For now using system fonts as fallback
+ */
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Crisp neutral base with cobalt + mint accent for a cleaner, modern look */
+  --background: oklch(0.985 0.007 255);
+  --foreground: oklch(0.18 0.014 255);
+  --card: oklch(0.995 0.004 250);
+  --card-foreground: oklch(0.18 0.014 255);
+  --popover: oklch(1 0.003 250);
+  --popover-foreground: oklch(0.18 0.014 255);
+  --primary: oklch(0.58 0.21 240);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.01 230);
+  --secondary-foreground: oklch(0.2 0.01 240);
+  --muted: oklch(0.95 0.01 250);
+  --muted-foreground: oklch(0.5 0.01 250);
+  --accent: oklch(0.7 0.12 160);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.55 0.21 24);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.01 250);
+  --input: oklch(0.9 0.01 250);
+  --ring: oklch(0.58 0.21 240);
+  --chart-1: oklch(0.58 0.21 240);
+  --chart-2: oklch(0.64 0.18 200);
+  --chart-3: oklch(0.68 0.12 160);
+  --chart-4: oklch(0.64 0.2 120);
+  --chart-5: oklch(0.6 0.16 280);
+  --radius: 1rem;
+  --sidebar: oklch(0.99 0.005 250);
+  --sidebar-foreground: oklch(0.18 0.014 255);
+  --sidebar-primary: oklch(0.58 0.21 240);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.96 0.01 230);
+  --sidebar-accent-foreground: oklch(0.2 0.01 240);
+  --sidebar-border: oklch(0.9 0.01 250);
+  --sidebar-ring: oklch(0.58 0.21 240);
+}
+
+.dark {
+  /* Deeper charcoal with electric cobalt + mint highlights */
+  --background: oklch(0.13 0.012 260);
+  --foreground: oklch(0.97 0.015 260);
+  --card: oklch(0.16 0.012 260);
+  --card-foreground: oklch(0.97 0.015 260);
+  --popover: oklch(0.17 0.012 260);
+  --popover-foreground: oklch(0.97 0.015 260);
+  --primary: oklch(0.73 0.18 240);
+  --primary-foreground: oklch(0.13 0.012 260);
+  --secondary: oklch(0.24 0.015 260);
+  --secondary-foreground: oklch(0.93 0.01 260);
+  --muted: oklch(0.22 0.012 260);
+  --muted-foreground: oklch(0.75 0.012 260);
+  --accent: oklch(0.78 0.12 160);
+  --accent-foreground: oklch(0.13 0.012 260);
+  --destructive: oklch(0.63 0.23 22);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.24 0.012 260);
+  --input: oklch(0.24 0.012 260);
+  --ring: oklch(0.73 0.18 240);
+  --chart-1: oklch(0.73 0.18 240);
+  --chart-2: oklch(0.78 0.12 160);
+  --chart-3: oklch(0.7 0.15 200);
+  --chart-4: oklch(0.68 0.14 120);
+  --chart-5: oklch(0.72 0.14 280);
+  --sidebar: oklch(0.16 0.01 260);
+  --sidebar-foreground: oklch(0.97 0.015 260);
+  --sidebar-primary: oklch(0.73 0.18 240);
+  --sidebar-primary-foreground: oklch(0.13 0.012 260);
+  --sidebar-accent: oklch(0.24 0.015 260);
+  --sidebar-accent-foreground: oklch(0.93 0.01 260);
+  --sidebar-border: oklch(0.24 0.012 260);
+  --sidebar-ring: oklch(0.73 0.18 240);
+}
+
+.cyberpunk {
+  /* Cyberpunk theme - Neon colors, dark futuristic with high contrast */
+  --background: oklch(0.08 0.02 270);
+  --foreground: oklch(0.98 0.1 180);
+  --card: oklch(0.14 0.06 270);
+  --card-foreground: oklch(0.98 0.1 180);
+  --popover: oklch(0.15 0.06 270);
+  --popover-foreground: oklch(0.98 0.1 180);
+  /* Neon cyan primary - brighter */
+  --primary: oklch(0.78 0.22 200);
+  --primary-foreground: oklch(0.08 0.02 270);
+  --secondary: oklch(0.18 0.06 270);
+  --secondary-foreground: oklch(0.98 0.1 180);
+  --muted: oklch(0.16 0.04 270);
+  --muted-foreground: oklch(0.75 0.12 180);
+  /* Neon magenta accent - brighter */
+  --accent: oklch(0.75 0.28 330);
+  --accent-foreground: oklch(0.08 0.02 270);
+  --destructive: oklch(0.68 0.3 10);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.28 0.16 200);
+  --input: oklch(0.28 0.16 200);
+  --ring: oklch(0.78 0.22 200);
+  --chart-1: oklch(0.78 0.22 200);
+  --chart-2: oklch(0.75 0.28 330);
+  --chart-3: oklch(0.73 0.26 280);
+  --chart-4: oklch(0.7 0.24 150);
+  --chart-5: oklch(0.76 0.24 60);
+  --sidebar: oklch(0.11 0.04 270);
+  --sidebar-foreground: oklch(0.98 0.1 180);
+  --sidebar-primary: oklch(0.78 0.22 200);
+  --sidebar-primary-foreground: oklch(0.08 0.02 270);
+  --sidebar-accent: oklch(0.18 0.06 270);
+  --sidebar-accent-foreground: oklch(0.98 0.1 180);
+  --sidebar-border: oklch(0.28 0.16 200);
+  --sidebar-ring: oklch(0.78 0.22 200);
+}
+
+.girly-violet {
+  /* Girly Violet theme - Soft pink and violet tones with better contrast */
+  --background: oklch(0.97 0.02 320);
+  --foreground: oklch(0.22 0.08 320);
+  --card: oklch(0.99 0.01 320);
+  --card-foreground: oklch(0.22 0.08 320);
+  --popover: oklch(0.99 0.015 320);
+  --popover-foreground: oklch(0.22 0.08 320);
+  /* Soft violet primary - deeper for contrast */
+  --primary: oklch(0.6 0.2 300);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.93 0.03 320);
+  --secondary-foreground: oklch(0.22 0.08 320);
+  --muted: oklch(0.94 0.025 320);
+  --muted-foreground: oklch(0.45 0.08 320);
+  /* Pink accent - deeper */
+  --accent: oklch(0.65 0.22 340);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.55 0.24 10);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.85 0.05 320);
+  --input: oklch(0.85 0.05 320);
+  --ring: oklch(0.6 0.2 300);
+  --chart-1: oklch(0.6 0.2 300);
+  --chart-2: oklch(0.65 0.22 340);
+  --chart-3: oklch(0.63 0.18 280);
+  --chart-4: oklch(0.68 0.17 320);
+  --chart-5: oklch(0.58 0.24 350);
+  --sidebar: oklch(0.98 0.02 320);
+  --sidebar-foreground: oklch(0.22 0.08 320);
+  --sidebar-primary: oklch(0.6 0.2 300);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.93 0.03 320);
+  --sidebar-accent-foreground: oklch(0.22 0.08 320);
+  --sidebar-border: oklch(0.85 0.05 320);
+  --sidebar-ring: oklch(0.6 0.2 300);
+}
+
+.ocean-breeze {
+  /* Ocean Breeze theme - Cool aqua and teal with better contrast */
+  --background: oklch(0.96 0.02 210);
+  --foreground: oklch(0.15 0.06 210);
+  --card: oklch(0.99 0.01 210);
+  --card-foreground: oklch(0.15 0.06 210);
+  --popover: oklch(0.99 0.015 210);
+  --popover-foreground: oklch(0.15 0.06 210);
+  /* Ocean teal primary - deeper */
+  --primary: oklch(0.52 0.18 200);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.93 0.03 210);
+  --secondary-foreground: oklch(0.15 0.06 210);
+  --muted: oklch(0.94 0.02 210);
+  --muted-foreground: oklch(0.42 0.08 210);
+  /* Aqua accent - deeper */
+  --accent: oklch(0.62 0.2 180);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.52 0.24 15);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.85 0.04 210);
+  --input: oklch(0.85 0.04 210);
+  --ring: oklch(0.52 0.18 200);
+  --chart-1: oklch(0.52 0.18 200);
+  --chart-2: oklch(0.62 0.2 180);
+  --chart-3: oklch(0.57 0.16 190);
+  --chart-4: oklch(0.6 0.17 220);
+  --chart-5: oklch(0.55 0.19 170);
+  --sidebar: oklch(0.97 0.02 210);
+  --sidebar-foreground: oklch(0.15 0.06 210);
+  --sidebar-primary: oklch(0.52 0.18 200);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.93 0.03 210);
+  --sidebar-accent-foreground: oklch(0.15 0.06 210);
+  --sidebar-border: oklch(0.85 0.04 210);
+  --sidebar-ring: oklch(0.52 0.18 200);
+}
+
+.paper-mint {
+  /* Paper Mint theme - warm paper base with crisp mint & ink accents */
+  --background: #f9f6ef;
+  --foreground: #111419;
+  --card: #ffffff;
+  --card-foreground: #111419;
+  --popover: #ffffff;
+  --popover-foreground: #111419;
+  --primary: #2fbf9f;
+  --primary-foreground: #041814;
+  --secondary: #f1ecde;
+  --secondary-foreground: #1e252d;
+  --muted: #ece6d8;
+  --muted-foreground: #4d5764;
+  --accent: #ffb454;
+  --accent-foreground: #1c1205;
+  --destructive: #d64242;
+  --destructive-foreground: #fdf7f4;
+  --border: #e0d7c6;
+  --input: #e0d7c6;
+  --ring: #2fbf9f;
+  --chart-1: #2fbf9f;
+  --chart-2: #ffb454;
+  --chart-3: #6fa7ff;
+  --chart-4: #c07bff;
+  --chart-5: #f47c6c;
+  --radius: 1.05rem;
+  --sidebar: #f6f1e4;
+  --sidebar-foreground: #111419;
+  --sidebar-primary: #2fbf9f;
+  --sidebar-primary-foreground: #041814;
+  --sidebar-accent: #f1ecde;
+  --sidebar-accent-foreground: #1e252d;
+  --sidebar-border: #e3d9c8;
+  --sidebar-ring: #2fbf9f;
+}
+
+.retro-wave {
+  /* Retro Wave theme - 80s neon aesthetics with pink, purple, orange */
+  --background: oklch(0.1 0.03 300);
+  --foreground: oklch(0.98 0.08 340);
+  --card: oklch(0.15 0.05 300);
+  --card-foreground: oklch(0.98 0.08 340);
+  --popover: oklch(0.16 0.06 300);
+  --popover-foreground: oklch(0.98 0.08 340);
+  /* Hot pink primary */
+  --primary: oklch(0.72 0.26 340);
+  --primary-foreground: oklch(0.1 0.03 300);
+  --secondary: oklch(0.2 0.05 300);
+  --secondary-foreground: oklch(0.98 0.08 340);
+  --muted: oklch(0.18 0.04 300);
+  --muted-foreground: oklch(0.72 0.1 340);
+  /* Electric orange accent */
+  --accent: oklch(0.7 0.24 50);
+  --accent-foreground: oklch(0.1 0.03 300);
+  --destructive: oklch(0.66 0.28 15);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.3 0.14 340);
+  --input: oklch(0.3 0.14 340);
+  --ring: oklch(0.72 0.26 340);
+  --chart-1: oklch(0.72 0.26 340);
+  --chart-2: oklch(0.7 0.24 50);
+  --chart-3: oklch(0.68 0.22 280);
+  --chart-4: oklch(0.74 0.2 320);
+  --chart-5: oklch(0.7 0.26 10);
+  --sidebar: oklch(0.12 0.04 300);
+  --sidebar-foreground: oklch(0.98 0.08 340);
+  --sidebar-primary: oklch(0.72 0.26 340);
+  --sidebar-primary-foreground: oklch(0.1 0.03 300);
+  --sidebar-accent: oklch(0.2 0.05 300);
+  --sidebar-accent-foreground: oklch(0.98 0.08 340);
+  --sidebar-border: oklch(0.3 0.14 340);
+  --sidebar-ring: oklch(0.72 0.26 340);
+}
+
+.chameleon {
+  /* Chameleon theme - Adaptive greens, blues, and purples like a chameleon */
+  --background: oklch(0.09 0.02 150);
+  --foreground: oklch(0.98 0.06 150);
+  --card: oklch(0.14 0.04 150);
+  --card-foreground: oklch(0.98 0.06 150);
+  --popover: oklch(0.15 0.05 150);
+  --popover-foreground: oklch(0.98 0.06 150);
+  /* Vibrant green primary - chameleon's signature color */
+  --primary: oklch(0.72 0.24 145);
+  --primary-foreground: oklch(0.09 0.02 150);
+  --secondary: oklch(0.19 0.05 150);
+  --secondary-foreground: oklch(0.98 0.06 150);
+  --muted: oklch(0.17 0.03 150);
+  --muted-foreground: oklch(0.73 0.08 150);
+  /* Blue-purple accent - color-shifting effect */
+  --accent: oklch(0.68 0.22 260);
+  --accent-foreground: oklch(0.09 0.02 150);
+  --destructive: oklch(0.67 0.28 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.28 0.12 150);
+  --input: oklch(0.28 0.12 150);
+  --ring: oklch(0.72 0.24 145);
+  /* Chart colors - gradient from green to blue to purple */
+  --chart-1: oklch(0.72 0.24 145);
+  --chart-2: oklch(0.7 0.22 200);
+  --chart-3: oklch(0.68 0.22 260);
+  --chart-4: oklch(0.66 0.2 290);
+  --chart-5: oklch(0.73 0.18 170);
+  --sidebar: oklch(0.12 0.03 150);
+  --sidebar-foreground: oklch(0.98 0.06 150);
+  --sidebar-primary: oklch(0.72 0.24 145);
+  --sidebar-primary-foreground: oklch(0.09 0.02 150);
+  --sidebar-accent: oklch(0.19 0.05 150);
+  --sidebar-accent-foreground: oklch(0.98 0.06 150);
+  --sidebar-border: oklch(0.28 0.12 150);
+  --sidebar-ring: oklch(0.72 0.24 145);
+}
+
+.midnight-hologram {
+  /* Midnight Hologram - Deep space with neon cyan and purple accents */
+  --background: #05050A;
+  --foreground: #FFFFFF;
+  --card: rgba(20, 20, 30, 0.6);
+  --card-foreground: #FFFFFF;
+  --popover: rgba(20, 20, 30, 0.8);
+  --popover-foreground: #FFFFFF;
+  /* Neon Cyan primary */
+  --primary: #00F0FF;
+  --primary-foreground: #05050A;
+  --secondary: rgba(255, 255, 255, 0.05);
+  --secondary-foreground: #FFFFFF;
+  --muted: rgba(255, 255, 255, 0.08);
+  --muted-foreground: #94A3B8;
+  /* Electric Purple accent */
+  --accent: #7000FF;
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF3366;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.05);
+  --ring: #00F0FF;
+  /* Neon spectrum for charts */
+  --chart-1: #00F0FF;
+  --chart-2: #7000FF;
+  --chart-3: #FF3366;
+  --chart-4: #00FF88;
+  --chart-5: #FFE600;
+  --radius: 1rem;
+  --sidebar: rgba(10, 10, 15, 0.9);
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #00F0FF;
+  --sidebar-primary-foreground: #05050A;
+  --sidebar-accent: rgba(112, 0, 255, 0.2);
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #00F0FF;
+}
+
+.clean-slate {
+  /* Clean Slate - Minimal & Neutral, easy on the eyes */
+  --background: #F4F5F7;
+  --foreground: #111827;
+  --card: #FFFFFF;
+  --card-foreground: #111827;
+  --popover: #FFFFFF;
+  --popover-foreground: #111827;
+  /* Calm blue primary */
+  --primary: #2563EB;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EEF2FF;
+  --secondary-foreground: #2563EB;
+  --muted: #F9FAFB;
+  --muted-foreground: #6B7280;
+  /* Subtle sky accent */
+  --accent: #38BDF8;
+  --accent-foreground: #0C4A6E;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E7EB;
+  --input: #F9FAFB;
+  --ring: #2563EB;
+  /* Chart colors */
+  --chart-1: #2563EB;
+  --chart-2: #38BDF8;
+  --chart-3: #16A34A;
+  --chart-4: #F59E0B;
+  --chart-5: #8B5CF6;
+  --radius: 0.75rem;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #111827;
+  --sidebar-primary: #2563EB;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #EEF2FF;
+  --sidebar-accent-foreground: #2563EB;
+  --sidebar-border: #E5E7EB;
+  --sidebar-ring: #2563EB;
+}
+
+.cosmic-glass {
+  /* Cosmic Glass - Deep space with neon accents and heavy glassmorphism */
+  --background: #030014;
+  --foreground: #FFFFFF;
+  --card: rgba(13, 18, 30, 0.85);
+  --card-foreground: #FFFFFF;
+  --popover: rgba(13, 18, 30, 0.95);
+  --popover-foreground: #FFFFFF;
+  /* Neon Purple Primary */
+  --primary: #A78BFA;
+  --primary-foreground: #FFFFFF;
+  --secondary: rgba(167, 139, 250, 0.2);
+  --secondary-foreground: #FFFFFF;
+  --muted: rgba(30, 41, 59, 0.7);
+  --muted-foreground: #CBD5E1;
+  /* Cyan Accent */
+  --accent: #22D3EE;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(148, 163, 184, 0.2);
+  --input: rgba(30, 41, 59, 0.7);
+  --ring: #A78BFA;
+  /* Chart colors */
+  --chart-1: #A78BFA;
+  --chart-2: #22D3EE;
+  --chart-3: #F472B6;
+  --chart-4: #34D399;
+  --chart-5: #FBBF24;
+  --radius: 1rem;
+  --sidebar: rgba(5, 8, 16, 0.9);
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #A78BFA;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: rgba(167, 139, 250, 0.2);
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: rgba(148, 163, 184, 0.15);
+  --sidebar-ring: #A78BFA;
+}
+
+.modern-light {
+  /* Modern Light - Clean, airy, and soft with high readability */
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+  /* Soft Indigo Primary */
+  --primary: #6366F1;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F1F5F9;
+  --secondary-foreground: #0F172A;
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+  /* Rose Accent */
+  --accent: #F43F5E;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #6366F1;
+  /* Chart colors */
+  --chart-1: #6366F1;
+  --chart-2: #F43F5E;
+  --chart-3: #10B981;
+  --chart-4: #F59E0B;
+  --chart-5: #8B5CF6;
+  --radius: 0.75rem;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #0F172A;
+  --sidebar-primary: #6366F1;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F1F5F9;
+  --sidebar-accent-foreground: #0F172A;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: #6366F1;
+}
+
+@theme inline {
+  --font-sans: "Inter", "SF Pro Display", -apple-system, "Public Sans", "Neue Haas Grotesk", "Satoshi", "Geist", "Geist Fallback", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", "Soehne Mono Buch", "Fira Code", "Geist Mono", "Geist Mono Fallback", monospace;
+
+  /* Design tokens - Spacing (8-point grid) */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* Design tokens - Typography */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+
+  /* Line heights */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  /* Color mappings */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* =========================================================================
+     PWA Native-Feel Optimizations
+     ========================================================================= */
+
+  /* Remove 300ms touch delay globally - CRITICAL for native feel */
+  button,
+  a,
+  [role="button"],
+  input,
+  textarea,
+  select,
+  [tabindex]:not([tabindex="-1"]),
+  .touchable {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Active state for instant visual feedback */
+  button:active:not(:disabled),
+  [role="button"]:active,
+  a:active,
+  .touchable:active {
+    transform: scale(0.97);
+    transition: transform 0.08s ease-out;
+  }
+
+  /* GPU layer hints - DISABLED: constant will-change causes high GPU usage */
+  .gpu-layer {
+    /* These properties force constant GPU compositing which wastes resources */
+    /* transform: translateZ(0); */
+    /* backface-visibility: hidden; */
+    /* will-change: transform; */
+  }
+
+  /* Smooth native-like scrolling */
+  .native-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    overscroll-behavior-y: contain;
+  }
+
+  /* iOS-like overscroll bounce */
+  .overscroll-bounce {
+    overscroll-behavior-y: auto;
+  }
+
+  /* Prevent overscroll (for custom pull-to-refresh) */
+  .overscroll-none {
+    overscroll-behavior: none;
+  }
+
+  /* Prevent text selection during drag gestures */
+  .no-select {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  /* Force all containers to stay within viewport on mobile ONLY */
+  @media (max-width: 768px) {
+
+    html,
+    body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100vw !important;
+    }
+  }
+
+  /* Enhanced table styling with glassmorphism effects */
+  .prose table {
+    display: block;
+    max-width: fit-content;
+    overflow-x: auto;
+    white-space: nowrap;
+    background: var(--muted);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-md);
+  }
+
+  .prose table td,
+  .prose table th {
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 300px;
+  }
+
+  @media (max-width: 640px) {
+
+    .prose table td,
+    .prose table th {
+      max-width: 200px;
+    }
+  }
+}
+
+/* Premium glassmorphism and modern effects */
+@layer utilities {
+
+  /* Macro styling building blocks for the new look */
+  .modern-shell {
+    position: relative;
+    min-height: 100vh;
+    /* Simplified background for better performance */
+    background:
+      radial-gradient(800px circle at 20% 15%, color-mix(in oklch, var(--primary) 20%, transparent) 0%, transparent 50%),
+      radial-gradient(600px circle at 80% 10%, color-mix(in oklch, var(--accent) 20%, transparent) 0%, transparent 50%),
+      var(--background);
+    isolation: isolate;
+  }
+
+  .mesh-layer,
+  .grid-layer,
+  .noise-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* GPU-OPTIMIZED: Simplified decorative layers - removed expensive effects */
+  .mesh-layer {
+    /* Simplified to single gradient, no blur filter */
+    background: radial-gradient(ellipse at 30% 20%, color-mix(in oklch, var(--primary) 8%, transparent) 0%, transparent 50%);
+    opacity: 0.15;
+    /* DISABLED: GPU hints cause constant GPU usage */
+    /* transform: translateZ(0); */
+    /* backface-visibility: hidden; */
+    /* DISABLED: blur filter is very GPU intensive */
+    /* filter: blur(4px); */
+  }
+
+  .grid-layer {
+    background-image:
+      linear-gradient(to right, color-mix(in oklch, var(--border) 30%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklch, var(--border) 30%, transparent) 1px, transparent 1px);
+    background-size: 52px 52px;
+    opacity: 0.08;
+    /* DISABLED: mask-image and mix-blend-mode are GPU intensive */
+    /* mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.55), transparent 70%); */
+    /* mix-blend-mode: soft-light; */
+  }
+
+  .noise-layer {
+    /* DISABLED: feTurbulence SVG filter is EXTREMELY GPU intensive */
+    /* This single element can cause 50%+ GPU usage! */
+    display: none;
+    /* background-image: url("data:image/svg+xml,..."); */
+    /* mix-blend-mode: soft-light; */
+  }
+
+  /* Lighter visual effects for users who prefer reduced motion/transparency */
+  @media (prefers-reduced-motion: reduce) {
+    .panel-elevated,
+    .glass,
+    .glass-strong,
+    .glass-subtle {
+      backdrop-filter: blur(8px) saturate(140%);
+      -webkit-backdrop-filter: blur(8px) saturate(140%);
+    }
+
+    /* DISABLED: GPU-forcing properties removed */
+    .mesh-layer,
+    .sidebar-bridge,
+    .sidebar-halo,
+    .main-bridge-left {
+      /* filter: blur(4px); */
+      /* transform: translateZ(0); */
+      /* backface-visibility: hidden; */
+    }
+
+    .grid-layer,
+    .noise-layer {
+      mix-blend-mode: normal;
+      opacity: 0.35;
+    }
+  }
+
+  /* Performance Mode - Manual toggle for GPU optimization */
+  .performance-mode .panel-elevated,
+  .performance-mode .glass,
+  .performance-mode .glass-strong,
+  .performance-mode .glass-subtle {
+    backdrop-filter: blur(4px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(4px) saturate(120%) !important;
+  }
+
+  .performance-mode .mesh-layer,
+  .performance-mode .sidebar-bridge,
+  .performance-mode .sidebar-halo,
+  .performance-mode .main-bridge-left {
+    filter: blur(2px) !important;
+    opacity: 0.3 !important;
+  }
+
+  .performance-mode .grid-layer,
+  .performance-mode .noise-layer {
+    display: none !important;
+  }
+
+  .performance-mode * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Ultra Performance Mode - Disable GPU-intensive effects for maximum performance */
+  .ultra-performance-mode .chameleon-color-shift {
+    animation: none !important;
+    filter: none !important;
+  }
+
+  .ultra-performance-mode .persona-avatar-glow,
+  .ultra-performance-mode .persona-avatar-glow:hover {
+    animation: none !important;
+    box-shadow: none !important;
+  }
+
+  .ultra-performance-mode .message-bubble-ai:hover,
+  .ultra-performance-mode .message-bubble-user:hover {
+    animation: none !important;
+  }
+
+  .ultra-performance-mode .animate-pulse-glow,
+  .ultra-performance-mode .animate-pulse-glow:hover {
+    animation: none !important;
+  }
+
+  .ultra-performance-mode .mesh-layer,
+  .ultra-performance-mode .grid-layer,
+  .ultra-performance-mode .noise-layer {
+    opacity: 0.05 !important;
+    filter: none !important;
+  }
+
+  .ultra-performance-mode .sidebar-bridge,
+  .ultra-performance-mode .sidebar-halo::before,
+  .ultra-performance-mode .sidebar-halo::after,
+  .ultra-performance-mode .main-bridge-left::before {
+    filter: none !important;
+    opacity: 0.3 !important;
+  }
+
+  .ultra-performance-mode .paper-mint-grid,
+  .ultra-performance-mode .paper-mint-noise {
+    opacity: 0.05 !important;
+  }
+
+  /* Cosmic Glass Background */
+  .cosmic-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.15), transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.15), transparent 25%),
+      linear-gradient(to bottom, #030014, #0F172A);
+  }
+
+  .cosmic-stars {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      radial-gradient(1px 1px at 10% 10%, white 100%, transparent),
+      radial-gradient(1px 1px at 20% 20%, white 100%, transparent),
+      radial-gradient(1px 1px at 30% 30%, white 100%, transparent),
+      radial-gradient(2px 2px at 40% 40%, white 100%, transparent),
+      radial-gradient(1px 1px at 50% 50%, white 100%, transparent),
+      radial-gradient(1px 1px at 60% 60%, white 100%, transparent),
+      radial-gradient(2px 2px at 70% 70%, white 100%, transparent),
+      radial-gradient(1px 1px at 80% 80%, white 100%, transparent),
+      radial-gradient(1px 1px at 90% 90%, white 100%, transparent);
+    background-size: 550px 550px;
+    opacity: 0.2;
+    /* Disabled expensive animation for GPU performance */
+    /* animation: twinkle 10s infinite linear; */
+  }
+
+  @keyframes twinkle {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(-550px);
+    }
+  }
+
+  @keyframes pulse-glow {
+
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  /* Pulse glow - disabled infinite animation for GPU performance */
+  .animate-pulse-glow {
+    /* animation: pulse-glow 4s ease-in-out infinite; */
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  /* Only animate on hover */
+  .animate-pulse-glow:hover {
+    animation: pulse-glow 4s ease-in-out 2;
+  }
+
+  /* Paper Mint background layers */
+  .paper-mint-bg {
+    position: relative;
+    isolation: isolate;
+    background:
+      radial-gradient(680px circle at 18% 20%, rgba(47, 191, 159, 0.16), transparent 52%),
+      radial-gradient(820px circle at 82% 16%, rgba(255, 180, 84, 0.18), transparent 58%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.65)),
+      #f9f6ef;
+  }
+
+  .paper-mint-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(17, 20, 25, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(17, 20, 25, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(circle at 50% 45%, rgba(0, 0, 0, 0.32), transparent 78%);
+    -webkit-mask-image: radial-gradient(circle at 50% 45%, rgba(0, 0, 0, 0.32), transparent 78%);
+    opacity: 0.35;
+    z-index: 0;
+  }
+
+  .paper-mint-noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.74' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+    mix-blend-mode: soft-light;
+    opacity: 0.28;
+    z-index: 0;
+  }
+
+  .panel-elevated {
+    background: color-mix(in oklch, var(--card) 95%, var(--primary) 5%);
+    border: 1px solid color-mix(in oklch, var(--border) 75%, var(--primary) 25%);
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.15);
+    /* DISABLED: backdrop-filter is GPU intensive */
+    /* backdrop-filter: blur(6px); */
+  }
+
+  .pill-nav {
+    background: color-mix(in oklch, var(--card) 90%, var(--primary) 10%);
+    border: 1px solid color-mix(in oklch, var(--border) 75%, var(--primary) 25%);
+    box-shadow: 0 18px 28px -18px rgba(0, 0, 0, 0.35);
+  }
+
+  /* GPU-OPTIMIZED: Disabled expensive blur effects on decorative elements */
+  .sidebar-bridge {
+    /* DISABLED: blur filter on large elements is very GPU intensive */
+    display: none;
+  }
+
+  .sidebar-halo {
+    position: relative;
+  }
+
+  .sidebar-halo::before,
+  .sidebar-halo::after {
+    /* DISABLED: blur filter pseudo-elements are GPU intensive */
+    display: none;
+  }
+
+  .main-bridge-left {
+    position: relative;
+  }
+
+  .main-bridge-left::before {
+    /* DISABLED: blur filter on large elements is GPU intensive */
+    display: none;
+  }
+
+  /* GPU-OPTIMIZED: Glass effects without backdrop-filter (very GPU intensive) */
+  .glass {
+    background: rgba(255, 255, 255, 0.92);
+    /* DISABLED: backdrop-filter is GPU intensive */
+    /* backdrop-filter: blur(6px) saturate(150%); */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .glass {
+    background: rgba(25, 25, 28, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.95);
+    /* DISABLED: backdrop-filter is GPU intensive */
+    /* backdrop-filter: blur(8px) saturate(160%); */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  .dark .glass-strong {
+    background: rgba(25, 25, 28, 0.97);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .glass-subtle {
+    background: rgba(255, 255, 255, 0.88);
+    /* DISABLED: backdrop-filter is GPU intensive */
+    /* backdrop-filter: blur(4px) saturate(130%); */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .dark .glass-subtle {
+    background: rgba(25, 25, 28, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  /* Modern glow effects */
+  .glow {
+    box-shadow: 0 0 20px -5px var(--primary), 0 0 40px -10px var(--primary);
+  }
+
+  .glow-subtle {
+    box-shadow: 0 0 15px -8px var(--primary);
+  }
+
+  .glow-strong {
+    box-shadow: 0 0 30px -3px var(--primary), 0 0 60px -8px var(--primary);
+  }
+
+  /* Modern gradient utilities - animation disabled for GPU performance */
+  .gradient-mesh {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 50%, var(--primary) 100%);
+    background-size: 200% 200%;
+    /* animation: gradientShift 8s ease infinite; */
+  }
+
+  /* Only animate on hover */
+  .gradient-mesh:hover {
+    animation: gradientShift 8s ease 1;
+  }
+
+  .gradient-premium {
+    background: linear-gradient(135deg,
+        hsl(from var(--primary) h s calc(l * 1.1)) 0%,
+        var(--primary) 50%,
+        hsl(from var(--accent) h s calc(l * 0.9)) 100%);
+  }
+
+  .gradient-glass {
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0.1) 100%);
+  }
+
+  .dark .gradient-glass {
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.02) 50%,
+        rgba(255, 255, 255, 0.05) 100%);
+  }
+
+  /* Smooth animations */
+  @keyframes gradientShift {
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes rise {
+    0% {
+      transform: translateY(18px) scale(0.98);
+      opacity: 0;
+    }
+
+    60% {
+      transform: translateY(-4px) scale(1.01);
+      opacity: 0.9;
+    }
+
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInDown {
+    from {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  @keyframes pulse-glow {
+
+    0%,
+    100% {
+      box-shadow: 0 0 20px -5px var(--primary);
+    }
+
+    50% {
+      box-shadow: 0 0 40px 0px var(--primary);
+    }
+  }
+
+  /* Animation utility classes */
+  .animate-slide-in-up {
+    animation: slideInUp 0.4s ease-out;
+  }
+
+  .animate-slide-in-down {
+    animation: slideInDown 0.4s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  /* Disabled infinite shimmer animation for GPU performance */
+  .animate-shimmer {
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%);
+    background-size: 200% 100%;
+    /* animation: shimmer 2s infinite; */
+  }
+
+  /* DUPLICATE: This is already defined at line 806-816, removing duplicate */
+  /* .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  } */
+
+  /* Modern AI Loading Animation */
+  @keyframes typing-wave {
+
+    0%,
+    100% {
+      transform: scaleY(0.4);
+      opacity: 0.4;
+    }
+
+    50% {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes thinking-pulse {
+
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(0.98);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes skeleton-shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  @keyframes gradient-flow {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* DISABLED: Infinite animations cause constant GPU usage */
+  .ai-loading-skeleton {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+    /* animation: skeleton-shimmer 2s ease-in-out infinite; */
+  }
+
+  .ai-loading-bar {
+    height: 12px;
+    border-radius: 6px;
+    background: hsl(var(--muted));
+    /* animation: skeleton-shimmer 1.5s ease-in-out infinite; */
+  }
+
+  .ai-thinking-dot {
+    /* animation: typing-wave 1.4s ease-in-out infinite; */
+    opacity: 0.7;
+  }
+
+  .ai-thinking-container {
+    /* animation: thinking-pulse 2s ease-in-out infinite; */
+  }
+
+  /* Gradient border animation - disabled for GPU performance */
+  .gradient-border-animated {
+    background: linear-gradient(90deg,
+        hsl(var(--primary)),
+        hsl(var(--accent)),
+        hsl(var(--primary)));
+    background-size: 200% 200%;
+    /* animation: gradient-flow 3s ease infinite; */
+  }
+
+  /* Only animate on hover */
+  .gradient-border-animated:hover {
+    animation: gradient-flow 3s ease 2;
+  }
+
+  /* Micro-interactions */
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.2);
+  }
+
+  .hover-glow {
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 30px -5px var(--primary);
+    transform: scale(1.02);
+  }
+
+  .hover-scale {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  /* Smooth transitions for all interactive elements */
+  .smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Custom animations for login page */
+  @keyframes blob {
+
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+      transform: translate(20px, -50px) scale(1.1);
+    }
+
+    50% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    75% {
+      transform: translate(50px, 50px) scale(1.05);
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-blob {
+    /* DISABLED: Infinite blob animation is GPU intensive */
+    /* animation: blob 7s infinite; */
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  /* DISABLED: Infinite animation causes GPU usage */
+  .animate-float {
+    /* animation: float 3s ease-in-out infinite; */
+  }
+
+  /* Text wrapping and overflow for prose content */
+  .prose {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .prose * {
+    max-width: 100%;
+  }
+
+  .prose p,
+  .prose li {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Ensure message bubbles don't overflow */
+  .message-bubble-ai,
+  .message-bubble-user {
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .message-bubble-ai .prose,
+  .message-bubble-ai .prose * {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+
+  /* Ensure SyntaxHighlighter respects parent width */
+  [class*="language-"] {
+    max-width: 100% !important;
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  /* ScrollArea container constraints */
+  [role="region"] {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Ensure containers never exceed viewport on mobile */
+  @media (max-width: 640px) {
+    [class*="max-w"] {
+      max-width: 100vw !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+  }
+
+  /* Force all message containers to respect parent width */
+  [class*="flex"][class*="gap-2"]>div {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* Ultra-narrow screens with xs size (Xiaomi 15 HyperOS etc) */
+  @media (max-width: 375px) {
+
+    /* Reduce padding on very narrow screens */
+    div[class*="max-w-5xl"] {
+      padding-left: 0.5rem !important;
+      padding-right: 0.5rem !important;
+    }
+
+    /* Compact bubble padding on tiny screens */
+    div[class*="rounded-2xl"][class*="px"] {
+      padding-left: 0.25rem !important;
+      padding-right: 0.25rem !important;
+    }
+  }
+
+  /* Xiaomi/HyperOS PWA specific fixes */
+  @supports (padding: max(0px)) {
+
+    /* Use viewport constraints for better mobile support */
+    body {
+      min-height: 100dvh;
+      /* Dynamic viewport height for mobile browsers */
+    }
+  }
+
+  /* =========================================================================
+     View Transitions API (Native-like page transitions)
+     ========================================================================= */
+
+  /* Default view transition - smooth cross-fade */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.25s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Slide transitions for navigation */
+  ::view-transition-old(slide-forward) {
+    animation: slide-out-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  ::view-transition-new(slide-forward) {
+    animation: slide-in-right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  ::view-transition-old(slide-back) {
+    animation: slide-out-right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  ::view-transition-new(slide-back) {
+    animation: slide-in-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes slide-out-left {
+    to { transform: translateX(-100%); opacity: 0; }
+  }
+
+  @keyframes slide-in-right {
+    from { transform: translateX(100%); opacity: 0; }
+  }
+
+  @keyframes slide-out-right {
+    to { transform: translateX(100%); opacity: 0; }
+  }
+
+  @keyframes slide-in-left {
+    from { transform: translateX(-100%); opacity: 0; }
+  }
+
+  /* =========================================================================
+     Ripple Touch Effect (Material-like feedback)
+     ========================================================================= */
+
+  .ripple-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.2;
+    transform: scale(0);
+    animation: ripple-expand 0.6s cubic-bezier(0, 0, 0.2, 1);
+    pointer-events: none;
+  }
+
+  @keyframes ripple-expand {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  /* =========================================================================
+     Pull-to-Refresh Styles
+     ========================================================================= */
+
+  .pull-indicator {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    z-index: 9999;
+    transition: transform 0.2s ease-out;
+  }
+
+  .pull-indicator.pulling {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .pull-indicator.refreshing .pull-spinner {
+    animation: spin 0.8s linear infinite;
+  }
+
+  .pull-spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--primary);
+    border-top-color: transparent;
+    border-radius: 50%;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* =========================================================================
+     High Refresh Rate Optimizations (120Hz)
+     ========================================================================= */
+
+  @media (prefers-reduced-motion: no-preference) {
+    /* Use shorter durations on high refresh rate displays */
+    @media (min-resolution: 2dppx) {
+      .smooth-transition {
+        transition-duration: 0.15s !important;
+      }
+
+      .animate-slide-in-up {
+        animation-duration: 0.25s !important;
+      }
+    }
+  }
+
+  /* Reduced motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* =========================================================================
+     Pet Companion Animations
+     ========================================================================= */
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+    20%, 40%, 60%, 80% { transform: translateX(2px); }
+  }
+
+  /* DISABLED: Infinite animations cause constant GPU usage */
+  .animate-wiggle {
+    /* animation: wiggle 0.5s ease-in-out infinite; */
+  }
+
+  .animate-shake {
+    /* animation: shake 0.5s ease-in-out infinite; */
+  }
+
+  /* Additional Tamagotchi Pet Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes dance {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    25% { transform: translateX(-4px) rotate(-5deg); }
+    75% { transform: translateX(4px) rotate(5deg); }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes jump {
+    0%, 100% { transform: translateY(0) scale(1); }
+    30% { transform: translateY(-15px) scale(1.1); }
+    50% { transform: translateY(-20px) scale(1.05); }
+    70% { transform: translateY(-15px) scale(1.1); }
+  }
+
+  @keyframes pet-happy {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.1) rotate(-3deg); }
+    50% { transform: scale(1) rotate(0deg); }
+    75% { transform: scale(1.1) rotate(3deg); }
+  }
+
+  @keyframes pet-sleep {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(0.98); }
+  }
+
+  @keyframes pet-eat {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-3px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(-3px); }
+  }
+
+  /* DISABLED: All pet infinite animations cause constant GPU usage */
+  .animate-float {
+    /* animation: float 2s ease-in-out infinite; */
+  }
+
+  .animate-dance {
+    /* animation: dance 0.6s ease-in-out infinite; */
+  }
+
+  .animate-spin-slow {
+    /* animation: spin 3s linear infinite; */
+  }
+
+  .animate-jump {
+    /* animation: jump 0.8s ease-in-out infinite; */
+  }
+
+  .animate-pet-happy {
+    /* animation: pet-happy 1s ease-in-out infinite; */
+  }
+
+  .animate-pet-sleep {
+    /* animation: pet-sleep 2s ease-in-out infinite; */
+  }
+
+  .animate-pet-eat {
+    animation: pet-eat 0.3s ease-in-out 4;
+  }
+
+  /* GPU-accelerated color shift for chameleon logo - DISABLED FOR PERFORMANCE */
+  /* WARNING: hue-rotate() is EXTREMELY GPU-intensive! */
+  @keyframes chameleon-hue-shift {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
+
+  .chameleon-color-shift {
+    /* animation: chameleon-hue-shift 18s linear infinite; */
+    /* Static fallback */
+    filter: hue-rotate(180deg);
+  }
+
+  /* Only animate on hover */
+  .chameleon-color-shift:hover {
+    animation: chameleon-hue-shift 18s linear 1;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    .chameleon-color-shift {
+      animation: none;
+    }
+  }
+
+  /* =========================================================================
+     AI Title Generation Animation (Lightweight, GPU-friendly)
+     ========================================================================= */
+
+  @keyframes title-appear {
+    0% {
+      opacity: 0.6;
+      transform: translateX(-4px);
+      color: var(--primary);
+    }
+    40% {
+      opacity: 1;
+      transform: translateX(0);
+      color: var(--primary);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+      color: inherit;
+    }
+  }
+
+  .animate-title-appear {
+    animation: title-appear 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    will-change: opacity, transform, color;
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-title-appear {
+      animation: none;
+    }
+  }
+
+}
+/* ========================================
+   FONT SYSTEM
+   ======================================== */
+
+/* Font Family CSS Variables */
+:root {
+  --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-roboto: 'Roboto', system-ui, -apple-system, sans-serif;
+  --font-atkinson: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  --font-opendyslexic: 'OpenDyslexic', monospace;
+  --font-jetbrains: 'JetBrains Mono', 'Consolas', monospace;
+  --font-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Default: Inter */
+body {
+  font-family: var(--font-inter);
+}
+
+/* Font Family Switching via data attribute */
+[data-font='inter'] {
+  font-family: var(--font-inter);
+}
+
+[data-font='roboto'] {
+  font-family: var(--font-roboto);
+}
+
+[data-font='atkinson'] {
+  font-family: var(--font-atkinson);
+}
+
+[data-font='opendyslexic'] {
+  font-family: var(--font-opendyslexic);
+}
+
+[data-font='jetbrains'] {
+  font-family: var(--font-jetbrains);
+}
+
+[data-font='system'] {
+  font-family: var(--font-system);
+}
+
+/* Font Size Variants */
+[data-font-size='small'] {
+  font-size: 14px;
+}
+
+[data-font-size='medium'] {
+  font-size: 16px;
+}
+
+[data-font-size='large'] {
+  font-size: 18px;
+}
+
+[data-font-size='extra-large'] {
+  font-size: 20px;
+}
+
+/* Code blocks always use monospace */
+code,
+pre,
+.font-mono {
+  font-family: var(--font-jetbrains) !important;
+}
+
+/* =========================================================================
+   Message Bubble Glow Effects & Enhanced Animations
+   ========================================================================= */
+
+/* AI Message Bubble Glow */
+@keyframes message-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3),
+                0 0 30px rgba(99, 102, 241, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.4),
+                0 0 50px rgba(99, 102, 241, 0.2);
+  }
+}
+
+.message-bubble-ai {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Only animate on hover - not constantly! */
+.message-bubble-ai:hover {
+  animation: message-glow 2s ease-in-out 3;
+  transform: translateY(-2px);
+}
+
+/* User Message Bubble - gradient shimmer */
+@keyframes user-bubble-shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+.message-bubble-user {
+  background: linear-gradient(135deg,
+    hsl(var(--primary)) 0%,
+    hsl(var(--primary) / 0.9) 50%,
+    hsl(var(--primary)) 100%);
+  background-size: 200% 100%;
+  color: hsl(var(--primary-foreground)) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ensure all text inside user bubbles has correct color */
+.message-bubble-user * {
+  color: hsl(var(--primary-foreground)) !important;
+}
+
+/* Only animate on hover - not constantly! */
+.message-bubble-user:hover {
+  animation: user-bubble-shimmer 3s linear 2;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced Typing Indicator */
+@keyframes typing-bounce {
+  0%, 60%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  30% {
+    transform: translateY(-10px) scale(1.3);
+    opacity: 1;
+  }
+}
+
+/* DISABLED: Infinite animations cause constant GPU usage */
+.typing-dot {
+  /* animation: typing-bounce 1.4s ease-in-out infinite; */
+  opacity: 0.7;
+}
+
+/* .typing-dot:nth-child(2) { animation-delay: 0.2s; } */
+/* .typing-dot:nth-child(3) { animation-delay: 0.4s; } */
+/* .typing-dot:nth-child(4) { animation-delay: 0.6s; } */
+
+/* Thinking Container Pulse - DISABLED for GPU performance */
+.thinking-container {
+  /* animation: thinking-pulse 2s ease-in-out infinite; */
+}
+
+/* Persona Avatar Glow - reduced animation frequency */
+@keyframes avatar-pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(99, 102, 241, 0.7);
+  }
+}
+
+/* Only animate on hover to reduce GPU load */
+.persona-avatar-glow:hover {
+  animation: avatar-pulse-glow 2.5s ease-in-out 2;
+}
+
+/* Card Hover with Lift */
+.card-interactive {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* Button Ripple Effect */
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.button-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+}
+
+.button-ripple:active::after {
+  animation: ripple-effect 0.6s ease-out;
+}
+
+/* Tap Scale Micro-interaction */
+.tap-scale {
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tap-scale:active {
+  transform: scale(0.96);
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================================================================
+   Dialog/Modal Fixes - Ensure proper loading and visibility
+   ========================================================================= */
+
+/* Force 100% solid background on dialogs - prevents ALL transparency issues */
+/* This overrides theme variables that use rgba with alpha < 1 */
+[data-slot="dialog-content"] {
+  background-color: #ffffff !important;
+  background-image: none !important;
+  opacity: 1 !important;
+  /* DISABLED: GPU-forcing properties */
+  /* transform: translateZ(0); */
+  /* backface-visibility: hidden; */
+}
+
+/* Dark mode dialogs */
+.dark [data-slot="dialog-content"] {
+  background-color: #1a1a1e !important;
+}
+
+/* Theme-specific solid backgrounds for dialogs */
+.cyberpunk [data-slot="dialog-content"] {
+  background-color: #1a1a2e !important;
+}
+
+.girly-violet [data-slot="dialog-content"] {
+  background-color: #fdf5ff !important;
+}
+
+.ocean-breeze [data-slot="dialog-content"] {
+  background-color: #f5fcff !important;
+}
+
+.paper-mint [data-slot="dialog-content"] {
+  background-color: #ffffff !important;
+}
+
+.retro-wave [data-slot="dialog-content"] {
+  background-color: #1a1028 !important;
+}
+
+.chameleon [data-slot="dialog-content"] {
+  background-color: #0f1a14 !important;
+}
+
+.midnight-hologram [data-slot="dialog-content"] {
+  background-color: #0a0a12 !important;
+}
+
+.clean-slate [data-slot="dialog-content"] {
+  background-color: #ffffff !important;
+}
+
+.cosmic-glass [data-slot="dialog-content"] {
+  background-color: #0d121e !important;
+}
+
+.modern-light [data-slot="dialog-content"] {
+  background-color: #ffffff !important;
+}
+
+/* Force opaque background in all states */
+[data-slot="dialog-content"][data-state="open"],
+[data-slot="dialog-content"][data-state="closed"] {
+  opacity: 1 !important;
+}
+
+/* Ensure no glass effects on dialogs */
+[data-slot="dialog-content"],
+[data-slot="dialog-content"] * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Lighter overlay - just a semi-transparent dark overlay */
+[data-slot="dialog-overlay"] {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Prevent flicker during dialog open */
+[data-slot="dialog-portal"] {
+  isolation: isolate;
+}
+
+/* =========================================================================
+   AlertDialog Fixes - Same solid background treatment
+   ========================================================================= */
+
+/* Force 100% solid background on alert dialogs */
+[data-slot="alert-dialog-content"] {
+  background-color: #ffffff !important;
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+.dark [data-slot="alert-dialog-content"] {
+  background-color: #1a1a1e !important;
+}
+
+.cyberpunk [data-slot="alert-dialog-content"] {
+  background-color: #1a1a2e !important;
+}
+
+.girly-violet [data-slot="alert-dialog-content"] {
+  background-color: #fdf5ff !important;
+}
+
+.ocean-breeze [data-slot="alert-dialog-content"] {
+  background-color: #f5fcff !important;
+}
+
+.paper-mint [data-slot="alert-dialog-content"] {
+  background-color: #ffffff !important;
+}
+
+.retro-wave [data-slot="alert-dialog-content"] {
+  background-color: #1a1028 !important;
+}
+
+.chameleon [data-slot="alert-dialog-content"] {
+  background-color: #0f1a14 !important;
+}
+
+.midnight-hologram [data-slot="alert-dialog-content"] {
+  background-color: #0a0a12 !important;
+}
+
+.clean-slate [data-slot="alert-dialog-content"] {
+  background-color: #ffffff !important;
+}
+
+.cosmic-glass [data-slot="alert-dialog-content"] {
+  background-color: #0d121e !important;
+}
+
+.modern-light [data-slot="alert-dialog-content"] {
+  background-color: #ffffff !important;
+}
+
+[data-slot="alert-dialog-content"],
+[data-slot="alert-dialog-content"] * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+[data-slot="alert-dialog-overlay"] {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* =========================================================================
+   Sidebar Chat Bubble Fixes
+   ========================================================================= */
+
+/* Ensure sidebar chat items don't get cut off */
+.sidebar-halo .glass-subtle {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: color-mix(in srgb, var(--card) 95%, transparent) !important;
+}
+
+/* Loading state for lazy-loaded components in dialogs */
+[data-slot="dialog-content"] .animate-spin {
+  will-change: transform;
+}
+
+/* Loading Skeleton Shimmer */
+@keyframes skeleton-pulse {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* DISABLED: Infinite animation causes GPU usage */
+.skeleton-shimmer {
+  background: rgba(255, 255, 255, 0.05);
+  /* animation: skeleton-pulse 1.5s ease-in-out infinite; */
+}
+
+/* =========================================================================
+   Modern Mobile UI - Glassmorphism & 2024/2025 Design Trends
+   ========================================================================= */
+
+/* Mobile Navigation Glass Effect */
+.mobile-nav-glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+.dark .mobile-nav-glass {
+  background: rgba(15, 15, 20, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* Mobile Header Glass Effect */
+.mobile-header-glass {
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+}
+
+@media (max-width: 768px) {
+  .mobile-header-glass {
+    background: rgba(255, 255, 255, 0.85);
+  }
+
+  .dark .mobile-header-glass {
+    background: rgba(10, 10, 15, 0.9);
+  }
+}
+
+/* Modern Message Bubbles - Enhanced */
+.message-bubble-user {
+  background: linear-gradient(135deg,
+    var(--primary) 0%,
+    color-mix(in oklch, var(--primary) 85%, var(--accent)) 100%);
+  background-size: 100% 100%;
+}
+
+.message-bubble-ai {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.dark .message-bubble-ai {
+  background: rgba(30, 30, 40, 0.7);
+}
+
+/* Slow spin animation for loading avatar */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Modern Touch Feedback - Micro-interactions */
+@media (max-width: 768px) {
+  /* Enhanced tap feedback for mobile */
+  button:active:not(:disabled),
+  [role="button"]:active,
+  a:active {
+    transform: scale(0.96);
+    transition: transform 0.1s ease-out;
+  }
+
+  /* Larger touch targets on mobile */
+  button, [role="button"], a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Exception for inline buttons */
+  .inline-flex button,
+  button.h-6, button.h-7, button.h-8 {
+    min-height: auto;
+    min-width: auto;
+  }
+}
+
+/* Floating Action Button Enhancements */
+.fab-glow {
+  box-shadow:
+    0 4px 15px rgba(var(--primary), 0.3),
+    0 8px 30px rgba(var(--primary), 0.2);
+}
+
+.fab-glow:hover {
+  box-shadow:
+    0 6px 20px rgba(var(--primary), 0.4),
+    0 12px 40px rgba(var(--primary), 0.25);
+}
+
+/* Modern Card Styles for Mobile */
+@media (max-width: 768px) {
+  .card, [class*="rounded-lg"][class*="border"] {
+    border-radius: 20px;
+  }
+
+  /* Starter prompt cards */
+  button[class*="rounded-xl"] {
+    border-radius: 16px;
+  }
+}
+
+/* Enhanced Shadows for Depth */
+.shadow-modern {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.02),
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    0 16px 32px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-modern-lg {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.02),
+    0 8px 16px rgba(0, 0, 0, 0.06),
+    0 24px 48px rgba(0, 0, 0, 0.08);
+}
+
+/* Smooth State Transitions */
+.smooth-all {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modern Input Styling for Mobile */
+@media (max-width: 768px) {
+  input, textarea, select {
+    font-size: 16px !important; /* Prevents iOS zoom */
+    border-radius: 16px;
+  }
+
+  /* Chat input area */
+  [class*="textarea"] {
+    border-radius: 20px;
+  }
+}
+
+/* Bottom Safe Area Enhancement */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .pb-safe {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 8px);
+  }
+}
+
+/* iOS-style Momentum Scroll Enhancement */
+@media (max-width: 768px) {
+  .native-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    overscroll-behavior-y: contain;
+  }
+}
+
+/* Modern Badge/Pill Styles */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+  background: rgba(var(--primary), 0.1);
+  color: var(--primary);
+}
+
+/* Gradient Text for Headings */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Modern Focus States */
+@media (max-width: 768px) {
+  *:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+}
+
+/* Haptic Feedback Visual Hint */
+.haptic-feedback {
+  transition: transform 0.1s ease-out;
+}
+
+.haptic-feedback:active {
+  transform: scale(0.97);
+}
+
+/* Theme-specific glassmorphism adjustments */
+.cyberpunk .mobile-nav-glass {
+  background: rgba(8, 8, 20, 0.9);
+  border-color: rgba(0, 240, 255, 0.2);
+}
+
+.retro-wave .mobile-nav-glass {
+  background: rgba(16, 10, 30, 0.9);
+  border-color: rgba(255, 44, 85, 0.2);
+}
+
+.paper-mint .mobile-nav-glass {
+  background: rgba(249, 246, 239, 0.95);
+  border-color: rgba(47, 191, 159, 0.2);
+}
+
+.midnight-hologram .mobile-nav-glass {
+  background: rgba(5, 5, 10, 0.95);
+  border-color: rgba(0, 240, 255, 0.15);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav-glass,
+  .mobile-header-glass,
+  .message-bubble-user,
+  .message-bubble-ai {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .animate-spin-slow {
+    animation: none;
+  }
+}
+
+/* =========================================================================
+   Dialog Viewport Safety - Nested Dialog Z-Index Reinforcement
+   ========================================================================= */
+
+/* Nested dialogs - ensure they render above parent dialogs */
+[data-slot="dialog-content"][data-nested="true"],
+[data-slot="alert-dialog-content"][data-nested="true"] {
+  z-index: 10999 !important;
+}
+
+[data-slot="dialog-overlay"][data-nested="true"],
+[data-slot="alert-dialog-overlay"][data-nested="true"] {
+  z-index: 10998 !important;
+}
+
+/* Base dialog z-index reinforcement */
+[data-slot="dialog-overlay"],
+[data-slot="alert-dialog-overlay"] {
+  z-index: 9998;
+}
+
+[data-slot="dialog-content"],
+[data-slot="alert-dialog-content"] {
+  z-index: 9999;
+}

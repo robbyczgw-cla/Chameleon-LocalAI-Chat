@@ -1,0 +1,79 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle for maskable icon support -->
+  <circle cx="256" cy="256" r="256" fill="#0a0a0a"/>
+
+  <!-- Chameleon body -->
+  <path
+    d="M 180 330 Q 150 305 150 270 Q 150 210 207 195 Q 265 187 335 205 Q 372 215 381 270 Q 385 305 368 345 Q 355 375 335 387 L 265 399 Q 224 399 180 375 Z"
+    fill="#22c55e"
+    opacity="0.9"
+  />
+
+  <!-- Chameleon head -->
+  <ellipse
+    cx="207"
+    cy="232"
+    rx="85"
+    ry="75"
+    fill="#16a34a"
+    opacity="0.95"
+  />
+
+  <!-- Eye background (white) -->
+  <circle cx="227" cy="217" r="28" fill="white" />
+
+  <!-- Eye pupil -->
+  <circle cx="236" cy="217" r="14" fill="#1e293b" />
+
+  <!-- Eye shine -->
+  <circle cx="230" cy="211" r="6" fill="white" opacity="0.8" />
+
+  <!-- Chameleon crest/head ridge -->
+  <path
+    d="M 147 192 Q 135 177 140 167 Q 145 162 155 167 Q 160 177 155 187 Z"
+    fill="#15803d"
+    opacity="0.8"
+  />
+
+  <!-- Chameleon tail (curled) -->
+  <path
+    d="M 335 387 Q 357 399 381 387 Q 405 375 420 360 Q 427 345 420 330 Q 412 318 399 323 Q 392 330 384 345 Q 374 365 357 375 Z"
+    fill="#16a34a"
+    stroke="#15803d"
+    strokeWidth="8"
+    opacity="0.85"
+  />
+
+  <!-- Chameleon front leg -->
+  <path
+    d="M 207 345 L 195 387 L 182 405"
+    stroke="#15803d"
+    strokeWidth="13"
+    strokeLinecap="round"
+    fill="none"
+  />
+
+  <!-- Chameleon back leg -->
+  <path
+    d="M 265 360 L 265 392 L 253 408"
+    stroke="#15803d"
+    strokeWidth="13"
+    strokeLinecap="round"
+    fill="none"
+  />
+
+  <!-- Decorative spots on body -->
+  <circle cx="265" cy="292" r="10" fill="#15803d" opacity="0.6" />
+  <circle cx="310" cy="305" r="10" fill="#15803d" opacity="0.6" />
+  <circle cx="288" cy="330" r="9" fill="#15803d" opacity="0.6" />
+
+  <!-- AI sparkle effects -->
+  <circle cx="140" cy="232" r="8" fill="#fbbf24" opacity="0.9" />
+  <circle cx="372" cy="292" r="8" fill="#fbbf24" opacity="0.9" />
+  <circle cx="280" cy="155" r="8" fill="#fbbf24" opacity="0.9" />
+
+  <!-- Small sparkles -->
+  <path d="M 155 210 L 158 213 L 155 216 L 152 213 Z" fill="#fbbf24" opacity="0.8" />
+  <path d="M 360 265 L 363 268 L 360 271 L 357 268 Z" fill="#fbbf24" opacity="0.8" />
+  <path d="M 295 175 L 298 178 L 295 181 L 292 178 Z" fill="#fbbf24" opacity="0.8" />
+</svg>
