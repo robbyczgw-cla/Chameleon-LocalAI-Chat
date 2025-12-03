@@ -85,8 +85,8 @@ This is the **Local-First Edition** - optimized for maximum privacy:
 
 After every response, Chameleon analyzes the conversation and suggests **3 intelligent follow-up questions** - helping you explore topics deeper, faster.
 
-<!-- Add your screenshot here -->
-<!-- ![Follow-up Suggestions](docs/screenshots/follow-up-suggestions.png) -->
+
+[Follow-up Suggestions](docs/screenshots/follow-up-suggestions.png)
 
 **Why it matters:**
 - Never hit a dead-end in conversations
