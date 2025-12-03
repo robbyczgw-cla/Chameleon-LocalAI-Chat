@@ -749,9 +749,10 @@ export const ChatMessages = memo(function ChatMessages({ currentPersona }: ChatM
                 )
               })()}
 
-              {/* Detailed Stats for assistant messages (when enabled in streaming visualization) */}
+              {/* Detailed Stats for assistant messages (when enabled and NOT local model) */}
               {message.role === "assistant" &&
-               (settings.experimental?.unifiedVisualization?.streaming?.showDetailedStats ??
+               !message.stats?.model?.startsWith("local/") &&
+               (settings.experimental?.unifiedVisualization?.streaming?.showDetailedStats ||
                 settings.showDetailedStats) && (
                 <MessageStats message={message} />
               )}
